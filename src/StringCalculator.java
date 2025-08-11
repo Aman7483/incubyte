@@ -3,9 +3,8 @@ public class StringCalculator {
         if (numbers == null || numbers.isEmpty()) {
             return 0;
         }
-        if (!numbers.contains(",")) {
-            return Integer.parseInt(numbers);
-        }
+        // Replace newlines with commas to support both delimiters
+        numbers = numbers.replace("\n", ",");
         String[] parts = numbers.split(",");
         int sum = 0;
         for (String part : parts) {
