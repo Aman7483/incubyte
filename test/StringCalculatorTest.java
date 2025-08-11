@@ -1,0 +1,10 @@
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class StringCalculatorTest {
+    @Test
+    public void testAdd_EmptyString_ReturnsZero() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(0, calc.add(""));
+    }
+}
