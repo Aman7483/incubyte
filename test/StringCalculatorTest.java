@@ -31,4 +31,32 @@ public class StringCalculatorTest {
         StringCalculator calc = new StringCalculator();
         assertEquals(6, calc.add("1\n2,3"));
     }
+
+    @Test
+    public void testAdd_CustomDelimiter_ReturnsSum() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(3, calc.add("//;\n1;2"));
+    }
+
+    @Test
+    public void testAdd_NegativeNumber_ThrowsException() {
+        StringCalculator calc = new StringCalculator();
+        try {
+            calc.add("1,-2,3");
+            fail("Exception expected");
+        } catch (IllegalArgumentException e) {
+            assertEquals("negative numbers not allowed -2", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testAdd_MultipleNegatives_ThrowsExceptionWithAllNegatives() {
+        StringCalculator calc = new StringCalculator();
+        try {
+            calc.add("-1,2,-3");
+            fail("Exception expected");
+        } catch (IllegalArgumentException e) {
+            assertEquals("negative numbers not allowed -1,-3", e.getMessage());
+        }
+    }
 }
