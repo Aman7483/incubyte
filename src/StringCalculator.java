@@ -3,7 +3,7 @@ public class StringCalculator {
         if (numbers == null || numbers.isEmpty()) {
             return 0;
         }
-        // TODO: Implement logic
-        return 0;
+        // Handle single number
+        return Integer.parseInt(numbers);
     }
 }
